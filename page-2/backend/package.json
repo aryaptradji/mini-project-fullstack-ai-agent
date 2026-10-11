@@ -1,0 +1,25 @@
+{
+  "name": "mw75-product-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "migrate": "node src/scripts/migrate.js",
+    "seed": "node src/scripts/seed.js",
+    "validate:openapi": "node src/scripts/validate-openapi.js"
+  },
+  "dependencies": {
+    "@apidevtools/swagger-parser": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "swagger-ui-express": "^5.0.1",
+    "yaml": "^2.8.1",
+    "zod": "^4.1.11"
+  }
+}

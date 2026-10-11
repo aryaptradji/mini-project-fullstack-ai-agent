@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MW75 TUMI | Master &amp; Dynamic</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <aside class="announcement-bar">
+      <div class="announcement-bar__inner">
+        <p>FREE US GROUND SHIPPING ON ORDERS OF $99 OR MORE.</p>
+      </div>
+    </aside>
+
+    <header class="site-header">
+      <div class="site-header__wrapper">
+        <!-- Logo -->
+        <div class="site-header__logo">
+          <a
+            href="#"
+            class="js-placeholder"
+            aria-label="Master &amp; Dynamic — Home"
+          >
+            <span class="site-header__logo-text">Master &amp; Dynamic</span>
+          </a>
+        </div>
+
+        <!-- Primary Navigation -->
+        <nav class="site-header__nav" aria-label="Primary navigation">
+          <ul class="site-header__nav-list">
+            <li><a href="#" class="js-placeholder">Headphones</a></li>
+            <li><a href="#" class="js-placeholder">Earphones</a></li>
+            <li><a href="#" class="js-placeholder">Accessories</a></li>
+            <li><a href="#" class="js-placeholder">Collaborations</a></li>
+            <li><a href="#" class="js-placeholder">Blog</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="site-header__actions">
+          <button
+            class="site-header__icon site-header__hamburger js-placeholder"
+            aria-label="Open navigation menu"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              fill="none"
+              aria-hidden="true"
+            >
+              <line
+                x1="2"
+                y1="5"
+                x2="20"
+                y2="5"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <line
+                x1="2"
+                y1="11"
+                x2="20"
+                y2="11"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <line
+                x1="2"
+                y1="17"
+                x2="20"
+                y2="17"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+            </svg>
+          </button>
+          <button
+            class="site-header__icon js-placeholder"
+            aria-label="Open search"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle
+                cx="8.5"
+                cy="8.5"
+                r="6"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <line
+                x1="13"
+                y1="13"
+                x2="18"
+                y2="18"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+            </svg>
+          </button>
+          <button
+            class="site-header__icon js-placeholder"
+            aria-label="Open account page"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle
+                cx="10"
+                cy="7"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <path
+                d="M2 18c0-4 3.6-6 8-6s8 2 8 6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+              />
+            </svg>
+          </button>
+          <button
+            class="site-header__cart"
+            id="cart-icon-btn"
+            aria-label="Open cart, 0 items"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path d="M4 8h14l1 12H3L4 8Z" stroke="currentColor" stroke-width="1.5" fill="none" />
+              <path d="M8 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg>
+            <span id="cart-badge" aria-live="polite" aria-label="Cart, 0 items"
+              >0</span
+            >
+          </button>
+          <button
+            class="site-header__icon js-placeholder"
+            aria-label="Select currency: US"
+          >
+            <span class="site-header__country">US</span>
+          </button>
+          <a href="#" class="site-header__support js-placeholder">Support</a>
+        </div>
+      </div>
+    </header>
+
+    <div id="product-loading" class="product-message" role="status">Loading product details…</div>
+    <section id="product-load-error" class="product-message" role="alert" hidden>
+      <p data-error-message>Unable to load product details.</p>
+      <button id="product-retry" type="button">Try again</button>
+    </section>
+    <nav class="breadcrumb container" aria-label="breadcrumbs" data-product-content hidden>
+      <ol class="breadcrumb__list">
+        <li class="breadcrumb__item">
+          <a href="#" class="breadcrumb__link js-placeholder">All Products</a>
+        </li>
+        <li class="breadcrumb__item" aria-hidden="true">
+          <span class="breadcrumb__sep">
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </span>
+        </li>
+        <li class="breadcrumb__item">
+          <a
+            href="#"
+            class="breadcrumb__link breadcrumb__title js-placeholder"
+            aria-current="page"
+            >MW75 TUMI</a
+          >
+        </li>
+      </ol>
+    </nav>
+
+    <section class="product container" data-product-content hidden>
+      <div class="product__gallery">
+        <div class="gallery__viewport">
+          <ul class="gallery__track" id="gallery-track">
+            <li class="gallery__slide">
+              <img
+                src="assets/images/gallery/MW75B_Hero.png"
+                alt="MW75 TUMI Black — Hero view"
+                class="gallery__img"
+              />
+            </li>
+            <li class="gallery__slide">
+              <img
+                src="assets/images/gallery/MW75B_Front.png"
+                alt="MW75 TUMI Black — Front view"
+                class="gallery__img"
+              />
+            </li>
+            <li class="gallery__slide">
+              <img
+                src="assets/images/gallery/MW75B_Engraving.png"
+                alt="MW75 TUMI Black — Engraving detail"
+                class="gallery__img"
+              />
+            </li>
+            <li class="gallery__slide">
+              <img
+                src="assets/images/gallery/MW75B_Straight.png"
+                alt="MW75 TUMI Black — Side view"
+                class="gallery__img"
+              />
+            </li>
+          </ul>
+        </div>
+        <button
+          class="gallery__btn gallery__btn--prev"
+          id="gallery-prev"
+          aria-label="Previous photo"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <polyline
+              points="15 18 9 12 15 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <button
+          class="gallery__btn gallery__btn--next"
+          id="gallery-next"
+          aria-label="Next photo"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <polyline
+              points="9 6 15 12 9 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <ol class="gallery__dots" id="gallery-dots">
+          <li>
+            <button
+              class="gallery__dot is-active"
+              aria-label="Go to photo 1"
+              aria-current="true"
+            ></button>
+          </li>
+          <li>
+            <button class="gallery__dot" aria-label="Go to photo 2"></button>
+          </li>
+          <li>
+            <button class="gallery__dot" aria-label="Go to photo 3"></button>
+          </li>
+          <li>
+            <button class="gallery__dot" aria-label="Go to photo 4"></button>
+          </li>
+        </ol>
+      </div>
+      <div class="product__info">
+        <h1 class="product__name">MW75 TUMI</h1>
+        <p class="product__subtitle">Noise-Cancelling Wireless Headphones</p>
+        <div class="product__price">$750.00</div>
+
+        <fieldset class="product__swatches" id="color-fieldset">
+          <legend class="product__swatches-legend">
+            <span>Color</span>
+            <span class="product__color-name" id="color-name">(Black)</span>
+          </legend>
+          <div class="product__swatches-list">
+            <label class="swatch" data-color-id="black" title="Black">
+              <input
+                type="radio"
+                name="color"
+                value="black"
+                checked
+                aria-label="Black"
+              />
+            </label>
+            <label class="swatch" data-color-id="silver" title="Silver">
+              <input
+                type="radio"
+                name="color"
+                value="silver"
+                aria-label="Silver"
+              />
+            </label>
+          </div>
+        </fieldset>
+
+        <p class="product__error" id="product-error" hidden>
+          The maximum quantity of this item is already in your cart.
+        </p>
+        <button class="product__add-to-cart" id="add-to-cart-btn" type="button">
+          ADD TO CART
+        </button>
+
+        <ul class="features__list">
+          <li class="features__item features__item_img">
+            <img src="assets/icons/ANC.svg" alt="" class="features__icon" width="32" height="32" aria-hidden="true">
+            <span>ANC</span>
+          </li>
+          <li class="features__item">
+            <svg class="features__icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M7 18v-5a9 9 0 0118 0v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="4" y="17" width="5" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="23" y="17" width="5" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <span>Anodized aluminum, tempered glass and lambskin leather</span>
+          </li>
+          <li class="features__item">
+            <svg class="features__icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="16" cy="16" r="7" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="16" cy="16" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M16 4v4M16 24v4M4 16h4M24 16h4M7.5 7.5l2.8 2.8M21.7 21.7l2.8 2.8M7.5 24.5l2.8-2.8M21.7 10.3l2.8-2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>40mm beryllium drivers</span>
+          </li>
+          <li class="features__item">
+            <svg class="features__icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect x="10" y="8" width="12" height="20" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M14 6h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="10" y1="14" x2="22" y2="14" stroke="currentColor" stroke-width="1"/>
+              <line x1="10" y1="20" x2="22" y2="20" stroke="currentColor" stroke-width="1"/>
+            </svg>
+            <span>32 hours of listening</span>
+          </li>
+          <li class="features__item">
+            <svg class="features__icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M11 11l14 9-7 4.5V7.5l7 4.5-14 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Bluetooth® 5.1</span>
+          </li>
+          <li class="features__item">
+            <svg class="features__icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect x="12" y="4" width="8" height="14" rx="4" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 18a8 8 0 0016 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="16" y1="26" x2="16" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="12" y1="29" x2="20" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>4 beamforming microphones</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="service-info container" data-product-content hidden>
+      <ul class="service-info__list">
+        <li class="service-info__item">
+          <svg
+            class="service-info__icon"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M4 14h16l-4-8H4v8zM20 14l4 2v5h-2"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <circle
+              cx="9"
+              cy="24"
+              r="2.5"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <circle
+              cx="22"
+              cy="24"
+              r="2.5"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+          </svg>
+          <div>
+            <h3 class="service-info__title">Free Shipping</h3>
+            <p class="service-info__desc">
+              Free ground shipping on orders of $99 or more in the U.S.
+            </p>
+          </div>
+        </li>
+        <li class="service-info__item">
+          <svg
+            class="service-info__icon"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M6 16l4 4 12-12"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <circle
+              cx="16"
+              cy="16"
+              r="12"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+          </svg>
+          <div>
+            <h3 class="service-info__title">Free Returns</h3>
+            <p class="service-info__desc">
+              We offer a 14-day return policy, allowing you to shop with
+              confidence.
+            </p>
+          </div>
+        </li>
+        <li class="service-info__item">
+          <svg
+            class="service-info__icon"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M16 4l10 6v12l-10 6L6 22V10l10-6z"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M16 4v24M6 10l10 6 10-6"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+          </svg>
+          <div>
+            <h3 class="service-info__title">Product Protection</h3>
+            <p class="service-info__desc">
+              Rest easy with our
+              <a href="#" class="js-placeholder">manufacturer warranty</a>,
+              ensuring that your product is protected against any manufacturing
+              defects or issues.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="brand-tumi" data-product-content hidden>
+      <div class="brand-tumi__inner container">
+        <div class="brand-tumi__media">
+          <img
+            src="assets/images/sections/TUMI_Brand.png"
+            alt="TUMI brand texture — hexagonal 19 Degree design detail"
+            class="brand-tumi__img"
+            loading="lazy"
+          />
+        </div>
+        <div class="brand-tumi__content">
+          <h3 class="brand-tumi__eyebrow">Master &amp; Dynamic for</h3>
+          <h2 class="brand-tumi__heading">TUMI</h2>
+          <p class="brand-tumi__desc">
+            A collection of active noise-cancelling sound tools created in
+            partnership with the international travel and lifestyle brand built
+            to enhance any journey. Featuring TUMI's iconic 19 Degree design
+            details, the headphones and earphones are seamless blend of
+            engineering precision and artistic expression.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-description container" data-product-content hidden>
+      <div class="product-description__inner">
+        <div class="product-description__media">
+          <img
+            src="assets/images/sections/MW75B_TUMI_Feature.png"
+            alt="MW75 TUMI Black headphones on a light background"
+            class="product-description__img"
+            loading="lazy"
+          />
+        </div>
+        <div class="product-description__content">
+          <h3 class="product-description__eyebrow">MW75</h3>
+          <h2 class="product-description__heading">
+            Active Noise-Cancelling Wireless Headphones
+          </h2>
+          <p class="product-description__body">
+            The MW75 Active Noise-Cancelling Wireless Headphones deliver
+            detailed, serious acoustics and custom-tailored sound with 40mm
+            Beryllium drivers and Adaptive Active Noise Cancellation for the
+            perfect combination of sound and silence. Experience effortless
+            all-day listening with lightweight anodized aluminum and soft
+            lambskin leather in a distinct, refined silhouette.
+          </p>
+          <p class="product-description__links">
+            <a href="#" class="js-placeholder product-description__link"
+              >Learn more</a
+            >
+            about MW75<br />
+            <a href="#" class="js-placeholder product-description__link"
+              >Discover the full TUMI collaboration here</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tech-specs container" data-product-content hidden>
+      <h2 class="tech-specs__heading">Tech Specs</h2>
+      <div class="tech-specs__accordions">
+        <details class="tech-specs__group">
+          <summary class="tech-specs__summary">
+            <span>Materials and Design</span>
+            <svg
+              class="tech-specs__chevron"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <polyline
+                points="5 8 10 13 15 8"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </summary>
+          <table class="tech-specs__table">
+            <tbody>
+              <tr>
+                <th>Materials</th>
+                <td>
+                  Lambskin leather headband and ear pads; anodized aluminum
+                  controls
+                </td>
+              </tr>
+              <tr>
+                <th>Dimensions</th>
+                <td>160.75mm x 197.83mm x 83.57mm</td>
+              </tr>
+              <tr>
+                <th>Weight</th>
+                <td>338g</td>
+              </tr>
+              <tr>
+                <th>Ear Coupling</th>
+                <td>Over-Ear</td>
+              </tr>
+              <tr>
+                <th>Ear Pads</th>
+                <td>
+                  Memory foam with lambskin leather, magnetic and replaceable
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </details>
+
+        <details class="tech-specs__group">
+          <summary class="tech-specs__summary">
+            <span>Sound and Features</span>
+            <svg
+              class="tech-specs__chevron"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <polyline
+                points="5 8 10 13 15 8"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </summary>
+          <table class="tech-specs__table">
+            <tbody>
+              <tr>
+                <th>Drivers</th>
+                <td>40mm beryllium</td>
+              </tr>
+              <tr>
+                <th>Impedance</th>
+                <td>32 Ohms</td>
+              </tr>
+              <tr>
+                <th>Talk Microphones</th>
+                <td>4 microphones with wind protection</td>
+              </tr>
+              <tr>
+                <th>ANC Microphones</th>
+                <td>4 microphones</td>
+              </tr>
+              <tr>
+                <th>Voice Assistant</th>
+                <td>Compatible with built-in device voice assistants</td>
+              </tr>
+            </tbody>
+          </table>
+        </details>
+
+        <details class="tech-specs__group">
+          <summary class="tech-specs__summary">
+            <span>Connectivity and Charging</span>
+            <svg
+              class="tech-specs__chevron"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <polyline
+                points="5 8 10 13 15 8"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </summary>
+          <table class="tech-specs__table">
+            <tbody>
+              <tr>
+                <th>Battery Life</th>
+                <td>Up to 32 hours, or up to 28 hours with ANC on</td>
+              </tr>
+              <tr>
+                <th>Bluetooth Profile</th>
+                <td>
+                  Bluetooth® 5.1, 100ft/30m range, AAC, aptX™ Adaptive up to
+                  24bit/48kHz, and SBC
+                </td>
+              </tr>
+              <tr>
+                <th>Wired Digital</th>
+                <td>
+                  Hi-res audio up to 24-bit/96kHz via included USB-C to USB-C
+                  cable on supported devices
+                </td>
+              </tr>
+              <tr>
+                <th>Analog Connection</th>
+                <td>USB-C to 3.5mm cable for analog audio (optional)</td>
+              </tr>
+              <tr>
+                <th>Cables</th>
+                <td>
+                  USB-C to 3.5mm audio cable and USB-C to USB-C charging cable
+                </td>
+              </tr>
+              <tr>
+                <th>Antenna</th>
+                <td>Internal antenna</td>
+              </tr>
+            </tbody>
+          </table>
+        </details>
+      </div>
+    </section>
+
+    <section class="in-the-box" data-product-content hidden>
+      <div class="in-the-box__inner container">
+        <h2 class="in-the-box__heading">In The Box</h2>
+        <ul class="in-the-box__grid">
+          <li class="in-the-box__item">
+            <img
+              src="assets/images/in-the-box/ITB_Headphones.png"
+              alt="Wireless Headphones"
+              class="in-the-box__img"
+              loading="lazy"
+            />
+            <p class="in-the-box__name">Wireless Headphones</p>
+          </li>
+          <li class="in-the-box__item">
+            <img
+              src="assets/images/in-the-box/ITB_USB_C_to_C.png"
+              alt="USB-C to USB-C Charging Cable"
+              class="in-the-box__img"
+              loading="lazy"
+            />
+            <p class="in-the-box__name">USB-C to USB-C Charging Cable</p>
+          </li>
+          <li class="in-the-box__item">
+            <img
+              src="assets/images/in-the-box/ITB_USB_C_to_35mm.png"
+              alt="USB-C to 3.5mm Audio Cable"
+              class="in-the-box__img"
+              loading="lazy"
+            />
+            <p class="in-the-box__name">USB-C to 3.5mm Audio Cable</p>
+          </li>
+          <li class="in-the-box__item">
+            <img
+              src="assets/images/in-the-box/ITB_USB_C_to_A.png"
+              alt="USB-C to USB-A Adapter"
+              class="in-the-box__img"
+              loading="lazy"
+            />
+            <p class="in-the-box__name">USB-C to USB-A Adapter</p>
+          </li>
+          <li class="in-the-box__item">
+            <img
+              src="assets/images/in-the-box/ITB_35mm_to_quarter.png"
+              alt="3.5mm to 1/4 inch Adapter"
+              class="in-the-box__img"
+              loading="lazy"
+            />
+            <p class="in-the-box__name">3.5mm to 1/4&quot; Adapter</p>
+          </li>
+          <li class="in-the-box__item">
+            <img
+              src="assets/images/in-the-box/ITB_Flight_Adapter.png"
+              alt="Flight Adapter"
+              class="in-the-box__img"
+              loading="lazy"
+            />
+            <p class="in-the-box__name">Flight Adapter</p>
+          </li>
+          <li class="in-the-box__item">
+            <img
+              src="assets/images/in-the-box/ITB_Hard_Case.png"
+              alt="Hard Shell Travel Case"
+              class="in-the-box__img"
+              loading="lazy"
+            />
+            <p class="in-the-box__name">Hard Shell Travel Case</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="support container">
+      <div class="support__inner">
+        <div class="support__media">
+          <img
+            src="assets/images/sections/Support_Banner.jpg"
+            alt="Master and Dynamic support"
+            class="support__img"
+            loading="lazy"
+          />
+        </div>
+        <div class="support__content">
+          <h2 class="support__heading">
+            Need support? We're here to assist you every step of the way.
+          </h2>
+          <p class="support__desc">
+            Access product support and frequently asked questions in our Support
+            Center
+          </p>
+          <a href="#" class="btn-support js-placeholder">Support Center</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner container">
+        <div class="site-footer__top">
+          <div class="site-footer__col">
+            <h5 class="site-footer__col-title">Help &amp; Info</h5>
+            <ul class="site-footer__links">
+              <li>
+                <a href="#" class="js-placeholder">Product Comparisons</a>
+              </li>
+              <li><a href="#" class="js-placeholder">Product Support</a></li>
+              <li><a href="#" class="js-placeholder">Shopping Info</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__col">
+            <h5 class="site-footer__col-title">About</h5>
+            <ul class="site-footer__links">
+              <li><a href="#" class="js-placeholder">About Us</a></li>
+              <li><a href="#" class="js-placeholder">News</a></li>
+              <li><a href="#" class="js-placeholder">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__col">
+            <h5 class="site-footer__col-title">Gifting</h5>
+            <ul class="site-footer__links">
+              <li><a href="#" class="js-placeholder">Corporate Gifting</a></li>
+              <li><a href="#" class="js-placeholder">Digital Gift Card</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <div class="site-footer__legal">
+            <a href="#" class="js-placeholder">Do Not Sell / Share</a>
+            <a href="#" class="js-placeholder">Notice At Collection</a>
+            <a href="#" class="js-placeholder">Web Accessibility</a>
+            <a href="#" class="js-placeholder">Privacy</a>
+            <a href="#" class="js-placeholder">Terms</a>
+            <a href="#" class="js-placeholder">Cookie Settings</a>
+          </div>
+          <div class="site-footer__social">
+            <a
+              href="#"
+              class="js-placeholder site-footer__social-link"
+              aria-label="Follow on Instagram"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <rect
+                  x="2"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="js-placeholder site-footer__social-link"
+              aria-label="Follow on Facebook"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="js-placeholder site-footer__social-link"
+              aria-label="Follow on YouTube"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <polygon
+                  points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="js-placeholder site-footer__social-link"
+              aria-label="Follow on Twitter"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </a>
+          </div>
+          <p class="site-footer__address">
+            Designed and developed in New York City. 1178 Broadway, 3rd Floor,
+            Suite 1205 New York, NY, 10001
+          </p>
+          <p class="site-footer__copy">© 2026. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="overlay"></div>
+    <div
+      id="cart-drawer"
+      class="cart-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cart-drawer-title"
+    >
+      <div class="cart-drawer__header">
+        <h2 class="cart-drawer__title" id="cart-drawer-title">Cart (0)</h2>
+        <button
+          class="cart-drawer__close"
+          id="cart-close-btn"
+          aria-label="Close cart"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            aria-hidden="true"
+          >
+            <line
+              x1="4"
+              y1="4"
+              x2="16"
+              y2="16"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <line
+              x1="16"
+              y1="4"
+              x2="4"
+              y2="16"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="cart-drawer__body" id="cart-drawer-body">
+        <div class="cart-drawer__empty">
+          <p>Your cart is empty</p>
+          <a href="#" class="btn btn--secondary js-placeholder"
+            >Continue shopping</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="config.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,194 @@
+openapi: 3.1.0
+info:
+  title: MW75 TUMI Product API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /health:
+    get:
+      summary: Process health
+      responses:
+        '200': { description: Healthy }
+  /ready:
+    get:
+      summary: Database readiness
+      responses:
+        '200': { description: Ready }
+        '503': { description: Database unavailable }
+  /api/products:
+    get:
+      summary: List product summaries
+      responses:
+        '200':
+          description: Product list
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [data, meta]
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/ProductSummary' } }
+                  meta: { type: object, required: [total], properties: { total: { type: integer } } }
+    post:
+      summary: Create a complete product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ProductInput' }
+            examples:
+              testProduct:
+                $ref: '#/components/examples/TestProduct'
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location: { schema: { type: string }, description: Created resource path }
+          content:
+            application/json: { schema: { $ref: '#/components/schemas/ProductEnvelope' } }
+        '400': { $ref: '#/components/responses/Problem' }
+  /api/products/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string, pattern: '^[1-9][0-9]*$' }
+    get:
+      summary: Get full product detail
+      responses:
+        '200': { description: Product detail, content: { application/json: { schema: { $ref: '#/components/schemas/ProductEnvelope' } } } }
+        '400': { $ref: '#/components/responses/Problem' }
+        '404': { $ref: '#/components/responses/Problem' }
+    put:
+      summary: Replace a complete product
+      requestBody:
+        required: true
+        content:
+          application/json: { schema: { $ref: '#/components/schemas/ProductInput' } }
+      responses:
+        '200': { description: Replaced, content: { application/json: { schema: { $ref: '#/components/schemas/ProductEnvelope' } } } }
+        '400': { $ref: '#/components/responses/Problem' }
+        '404': { $ref: '#/components/responses/Problem' }
+    delete:
+      summary: Delete a product and cascading records
+      responses:
+        '204': { description: Deleted, content: {} }
+        '400': { $ref: '#/components/responses/Problem' }
+        '404': { $ref: '#/components/responses/Problem' }
+components:
+  responses:
+    Problem:
+      description: RFC 9457 Problem Details
+      content:
+        application/problem+json:
+          schema: { $ref: '#/components/schemas/Problem' }
+  schemas:
+    ProductSummary:
+      type: object
+      required: [id, name, price, currency, image]
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        price: { type: integer, minimum: 0, description: Integer minor currency units }
+        currency: { type: string, pattern: '^[A-Z]{3}$' }
+        image: { type: string, format: uri }
+    ProductEnvelope:
+      type: object
+      required: [data, meta]
+      properties:
+        data: { $ref: '#/components/schemas/Product' }
+        meta: { type: object }
+    ProductInput:
+      type: object
+      additionalProperties: false
+      required: [name, subtitle, brand, price, currency, image, description, variants, highlights, services, collaboration, specificationGroups, boxItems]
+      properties:
+        name: { type: string, minLength: 1, maxLength: 160 }
+        subtitle: { type: string, minLength: 1, maxLength: 240 }
+        brand: { type: string, minLength: 1, maxLength: 120 }
+        price: { type: integer, minimum: 0 }
+        currency: { type: string, pattern: '^[A-Z]{3}$' }
+        image: { type: string, format: uri }
+        description: { type: string, minLength: 1, maxLength: 5000 }
+        variants:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            additionalProperties: false
+            required: [type, value, quantity, images]
+            properties:
+              type: { type: string, enum: [color, size] }
+              value: { type: string }
+              quantity: { type: integer, minimum: 0 }
+              position: { type: integer, minimum: 0 }
+              images:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  required: [role, url, alt]
+                  properties:
+                    role: { type: string }
+                    url: { type: string, format: uri }
+                    alt: { type: string }
+                    position: { type: integer, minimum: 0 }
+        highlights: { type: array, items: { type: object, required: [title, description, icon], properties: { title: { type: string }, description: { type: string }, icon: { type: string }, position: { type: integer } } } }
+        services: { type: array, items: { type: object, required: [title, description], properties: { title: { type: string }, description: { type: string }, position: { type: integer } } } }
+        collaboration: { oneOf: [{ type: 'null' }, { type: object, required: [title, description, image, imageAlt], properties: { title: { type: string }, description: { type: string }, image: { type: string, format: uri }, imageAlt: { type: string } } }] }
+        specificationGroups: { type: array, items: { type: object, required: [title, items], properties: { title: { type: string }, position: { type: integer }, items: { type: array, items: { type: object, required: [label, value], properties: { label: { type: string }, value: { type: string }, position: { type: integer } } } } } } }
+        boxItems: { type: array, items: { type: object, required: [name, image, imageAlt], properties: { name: { type: string }, image: { type: string, format: uri }, imageAlt: { type: string }, position: { type: integer } } } }
+    Product:
+      type: object
+      description: Full product response including the ProductInput fields and server ID.
+      required: [id, name, subtitle, brand, price, currency, image, description, variants, highlights, services, collaboration, specificationGroups, boxItems]
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        subtitle: { type: string }
+        brand: { type: string }
+        price: { type: integer, minimum: 0 }
+        currency: { type: string, pattern: '^[A-Z]{3}$' }
+        image: { type: string, format: uri }
+        description: { type: string }
+        variants: { type: array, items: { $ref: '#/components/schemas/ProductInput/properties/variants/items' } }
+        highlights: { type: array, items: { $ref: '#/components/schemas/ProductInput/properties/highlights/items' } }
+        services: { type: array, items: { $ref: '#/components/schemas/ProductInput/properties/services/items' } }
+        collaboration: { $ref: '#/components/schemas/ProductInput/properties/collaboration' }
+        specificationGroups: { type: array, items: { $ref: '#/components/schemas/ProductInput/properties/specificationGroups/items' } }
+        boxItems: { type: array, items: { $ref: '#/components/schemas/ProductInput/properties/boxItems/items' } }
+    Problem:
+      type: object
+      required: [type, title, status, detail, instance]
+      properties:
+        type: { type: string }
+        title: { type: string }
+        status: { type: integer }
+        detail: { type: string }
+        instance: { type: string }
+        errors: { type: array, items: { type: object, required: [field, message], properties: { field: { type: string }, message: { type: string } } } }
+  examples:
+    TestProduct:
+      summary: Minimal valid product for trying the CRUD endpoints
+      value:
+        name: Test API Product
+        subtitle: Sample product
+        brand: Demo
+        price: 12500
+        currency: USD
+        image: https://example.com/test-hero.png
+        description: Product for trying the API.
+        variants:
+          - type: color
+            value: Indigo
+            quantity: 5
+            images:
+              - role: hero
+                url: https://example.com/test-hero.png
+                alt: Test product in Indigo
+        highlights: []
+        services: []
+        collaboration: null
+        specificationGroups: []
+        boxItems: []
