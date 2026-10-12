@@ -22,6 +22,50 @@ Project latihan full-stack untuk halaman detail headphone MW75 TUMI. Frontend me
 | API documentation | OpenAPI 3.1, Swagger UI |
 | Container database | Docker Compose |
 
+## Struktur dan arsitektur backend
+
+Backend memisahkan penerimaan HTTP, aturan produk, dan akses database supaya perubahan pada satu bagian tidak mencampur tanggung jawab bagian lain.
+
+```text
+backend/
+├── docker-compose.yml
+├── migrations/
+│   └── 001_schema.sql
+└── src/
+    ├── app.js
+    ├── server.js
+    ├── config/         # environment dan koneksi PostgreSQL
+    ├── routes/         # pemetaan URL/method ke controller
+    ├── controllers/    # request HTTP dan bentuk response
+    ├── services/       # aturan produk dan validasi ID
+    ├── repositories/   # query SQL dan pemetaan record DB
+    ├── schemas/        # schema Zod dan kontrak OpenAPI
+    ├── middlewares/    # request ID dan error handler
+    ├── errors/         # error aplikasi terstruktur
+    └── scripts/        # migration, seed, validasi OpenAPI
+```
+
+| Folder/file | Gunanya |
+| --- | --- |
+| `backend/src/server.js` | Menjalankan HTTP server dan menutup connection pool saat proses berhenti. |
+| `backend/src/app.js` | Merangkai Express middleware, CORS, health/readiness, Swagger, static assets, route API, dan error handler. |
+| `backend/src/config/` | Memvalidasi environment dan membuat PostgreSQL connection pool. |
+| `backend/src/routes/` | Mendaftarkan endpoint CRUD dan mengarahkannya ke controller. Tidak berisi query SQL. |
+| `backend/src/controllers/` | Memanggil service dan membentuk status/header/envelope HTTP seperti `{ data, meta }`, `Location`, dan `204`. |
+| `backend/src/services/` | Menjalankan aturan bisnis: validasi ID, validasi input produk, aturan MW75, dan not-found. |
+| `backend/src/repositories/` | Tempat query SQL `SELECT`/`INSERT`/`UPDATE`/`DELETE`; query memakai parameter `$1`, `$2`, dan seterusnya. Repository juga merangkai relasi database menjadi objek produk API. |
+| `backend/src/schemas/` | `product.schema.js` memvalidasi payload dengan Zod; `openapi.yaml` mendokumentasikan kontrak API untuk Swagger. |
+| `backend/src/middlewares/` dan `backend/src/errors/` | Membuat request ID serta mengubah kegagalan menjadi RFC 9457 Problem Details. |
+| `backend/src/scripts/` | Menjalankan schema migration, mengisi data awal MW75, dan memvalidasi OpenAPI. |
+| `backend/migrations/001_schema.sql` | Membuat tabel, constraint, index, foreign key, dan cascade delete. Isinya SQL schema; query CRUD ada di repository. |
+| `backend/docker-compose.yml` | Menjalankan PostgreSQL lokal dengan health check dan named volume persisten. |
+
+### Alur request singkat
+
+Contoh `GET /api/products/1`: Express di `app.js` menerima request → route memilih controller → controller memanggil service → service memvalidasi ID → repository menjalankan query dan menyusun detail dari tabel produk beserta relasinya → controller mengirim response. Jika terjadi error, error middleware membuat response Problem Details.
+
+Untuk `POST` dan `PUT`, service memvalidasi payload sebelum repository menyimpan produk dan relasi nested di dalam transaksi. Jika salah satu langkah tulis gagal, transaksi di-rollback agar data tidak tersimpan sebagian.
+
 ## Prasyarat
 
 - Node.js versi 22 atau lebih baru dan npm.
